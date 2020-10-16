@@ -66,7 +66,7 @@ end
 function testOffsetAndNegativeBasisRotation(testCase)
 % Test a the negative basis vectors an offset such that Oe = [0,1,0].
 
-Pe5 = [0 -1 -0.5 1];
+Pe5 = [0 1 -0.5 1];
 T_e2h5 = generateFrameTransformationToHome([0 1 0],[-1 0 0],[0 -1 0],[0 0 -1]);
 Ph5 = T_e2h5*Pe5';
 
@@ -81,7 +81,7 @@ end
 
 function testOffsetAnd60DegreeRotationAboutZ(testCase)
 % Test a rotation of 60 degrees counterclockwise (looking into negative
-% direction) about the z axis with an offset such that Oe = [-1,1,0].
+% direction) about the z axis with an offset such that Oe = [0,1,1].
 
 %generate rotation for 60 degree rotation counterclockwise (looking into negative direction) about the z axis
 [Rz3by3,Rz4by4] = rotationMatrixAboutFrameAxis(3,60);
@@ -89,12 +89,12 @@ v1 = [1 0 0 1];
 v2 = [0 1 0 1];
 v3 = [0 0 1 1];
 %rotate h basis by 60 degrees about the z axis
-e1 = Rz4by4*v1';
-e2 = Rz4by4*v2';
-e3 = Rz4by4*v3';
+e1 = Rz4by4*v1'
+e2 = Rz4by4*v2'
+e3 = Rz4by4*v3'
 
-Pe4 = [(sqrt(3)+1),0,1,1];
-T_e2h4 = generateFrameTransformationToHome([-1,1,0],e1(1:3),e2(1:3),e3(1:3));
+Pe4 = [sqrt(3),1,1,1];
+T_e2h4 = generateFrameTransformationToHome([0,1,1],e1(1:3),e2(1:3),e3(1:3));
 Ph4 = T_e2h4*Pe4';
 
 %round the output to 3 decimal places
@@ -102,7 +102,7 @@ Ndecimals = 3;
 f = 10.^Ndecimals;
 actSolution = round(f*Ph4(1:3))/f;
 
-expSolution = [0,2,1];
+expSolution = [0,3,2];
 verifyEqual(testCase,actSolution,expSolution')
 end
 

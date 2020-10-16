@@ -42,5 +42,4 @@ Q9results = runtests('test_generateFrameTransformationToHome.m')
 
 %% Question 10
 target_tracking_error_incrementing % Runs the simulations that increments the magnitude of the error vectors and exits of the maximum error is reached - this is done for 2 target locations
-
-target_tracking_error_analysis % Runs the simulation that increments the magnitude of the error vectors and generates failure rate analysis for 2 target locations
+targetTrackingErrorSimulationAnalysis % Runs the simulation that increments the magnitude of the error vectors and generates failure rate analysis for 2 target locations
